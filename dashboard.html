@@ -333,7 +333,7 @@ const meals = [
   }
 ];
 
-meals.sort((a, b) => b.date_logged.localeCompare(a.date_logged));
+meals.sort((a, b) => a.name.localeCompare(b.name));
 
 document.getElementById('count').textContent = meals.length + ' entries logged';
 
