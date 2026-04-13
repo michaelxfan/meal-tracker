@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Meal Tracker</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f9fafb; color: #111827; padding: 2rem 1rem; }
+  .page-header { max-width: 1100px; margin: 0 auto 2rem; }
+  .page-header h1 { font-size: 2rem; font-weight: 700; color: #111827; }
+  .page-header .subtitle { color: #6b7280; margin-top: 0.25rem; font-size: 0.95rem; }
+  .meals { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 2rem; }
+  .meal-card { background: #fff; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); overflow: hidden; }
+
+  .meal-header { display: flex; align-items: center; flex-wrap: wrap; gap: 0.6rem; padding: 1.1rem 1.4rem; border-bottom: 1px solid #e5e7eb; }
+  .meal-name { font-size: 1.2rem; font-weight: 700; color: #111827; flex: 1 1 auto; }
+  .badge { display: inline-block; padding: 0.2rem 0.65rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; text-transform: capitalize; background: #e0e7ff; color: #3730a3; }
+  .badge.snack { background: #fef3c7; color: #92400e; }
+  .badge.breakfast { background: #fce7f3; color: #9d174d; }
+  .cuisine { font-size: 0.82rem; color: #6b7280; }
+  .date { font-size: 0.82rem; color: #9ca3af; margin-left: auto; }
+
+  .columns { display: flex; flex-wrap: wrap; gap: 0; }
+  .col { flex: 1 1 320px; padding: 1.25rem 1.4rem; }
+  .col-good { background: #f3f4f6; border-left: 4px solid #6b7280; }
+  .col-best { background: #f0fdf4; border-left: 4px solid #16a34a; }
+  .col-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem; }
+  .col-good .col-label { color: #6b7280; }
+  .col-best .col-label { color: #16a34a; }
+
+  .nutrition-bar { display: flex; flex-wrap: wrap; gap: 0; border-radius: 8px; overflow: hidden; margin-bottom: 0.5rem; border: 1px solid rgba(0,0,0,0.07); }
+  .col-good .nutrition-bar { background: #e9eaec; border-color: #d1d5db; }
+  .col-best .nutrition-bar { background: #d1fae5; border-color: #a7f3d0; }
+  .stat { display: flex; flex-direction: column; align-items: center; flex: 1 1 0; padding: 0.45rem 0.5rem; border-right: 1px solid rgba(0,0,0,0.07); }
+  .stat:last-child { border-right: none; }
+  .stat-value { font-size: 0.95rem; font-weight: 700; line-height: 1; }
+  .stat-value.calories { color: #92400e; }
+  .stat-value.protein  { color: #1e40af; }
+  .stat-value.carbs    { color: #6d28d9; }
+  .stat-value.fiber    { color: #166534; }
+  .stat-label { font-size: 0.62rem; color: #9ca3af; margin-top: 0.18rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .serving-note { font-size: 0.72rem; color: #9ca3af; margin-bottom: 0.85rem; font-style: italic; }
+
+  .section-heading { font-size: 0.8rem; font-weight: 600; color: #374151; margin: 0.75rem 0 0.35rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  ul.ingredient-list { list-style: disc; padding-left: 1.25rem; }
+  ul.ingredient-list li { font-size: 0.88rem; color: #374151; margin-bottom: 0.2rem; }
+  .method-text { font-size: 0.88rem; color: #374151; line-height: 1.6; }
+  .why-list { list-style: none; padding: 0; margin-top: 0.35rem; }
+  .why-list li { font-size: 0.85rem; color: #166534; background: #dcfce7; border-radius: 6px; padding: 0.5rem 0.65rem; margin-bottom: 0.45rem; line-height: 1.55; }
+  .why-list li::before { content: "✦ "; font-size: 0.75rem; }
+
+  @media (max-width: 660px) {
+    .col { flex: 1 1 100%; }
+    .col-best { border-left: 4px solid #16a34a; border-top: 2px solid #bbf7d0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>My Meal Tracker</h1>
+  <div class="subtitle">5 meals logged</div>
+</div>
+
+<div class="meals">
+
+  <!-- Oatmeal -->
+  <div class="meal-card">
+    <div class="meal-header">
+      <span class="meal-name">Oatmeal</span>
+      <span class="badge breakfast">breakfast</span>
+      <span class="cuisine">Homestyle</span>
+      <span class="date">2026-03-31</span>
+    </div>
+    <div class="columns">
+      <div class="col col-good">
+        <div class="col-label">Good</div>
+        <div class="nutrition-bar">
+          <div class="stat"><span class="stat-value calories">130</span><span class="stat-label">Calories</span></div>
+          <div class="stat"><span class="stat-value protein">4g</span><span class="stat-label">Protein</span></div>
+          <div class="stat"><span class="stat-value carbs">27g</span><span class="stat-label">Carbs</span></div>
+          <div class="stat"><span class="stat-value fiber">2g</span><span class="stat-label">Fiber</span></div>
+        </div>
+        <div class="serving-note">per serving (1 packet / 1 cup cooked)</div>
+        <div class="section-heading">Ingredients</div>
+        <ul class="ingredient-list">
+          <li>1 packet instant oatmeal</li>
+          <li>Hot water</li>
+        </ul>
+        <div class="section-heading">Method</div>
+        <p class="method-text">Add hot water and serve.</p>
+      </div>
+      <div class="col col-best">
+        <div class="col-label">Best</div>
+        <div class="nutrition-bar">
+          <div class="stat"><span class="stat-value calories">370</span><span class="stat-label">Calories</span></div>
+          <div class="stat"><span class="stat-value protein">12g</span><span class="stat-label">Protein</span></div>
+          <div class="stat"><span class="stat-value carbs">48g</span><span class="stat-label">Carbs</span></div>
+          <div class="stat"><span class="stat-value fiber">6g</span><span class="stat-label">Fiber</span></div>
+        </div>
+        <div class="serving-note">per serving (1 packet / 1 cup cooked)</div>
+        <div class="section-heading">Ingredients</div>
+        <ul class="ingredient-list">
+          <li>½ cup rolled oats (not instant)</li>
+          <li>1 cup whole milk or oat milk</li>
+          <li>Pinch of salt</li>
+          <li>1 tsp honey or maple syrup</li>
+          <li>½ tsp cinnamon</li>
+          <li>1 tbsp nut butter (almond or peanut)</li>
+          <li>Fresh or frozen berries, to top</li>
+        </ul>
+        <div class="section-heading">Method</div>
+        <p class="method-text">Combine oats, milk, salt, and cinnamon in a small saucepan over medium heat. Cook, stirring occasionally, until oats are creamy and have absorbed most of the liquid, about 5 min. Remove from heat — it will thicken further as it sits. Stir in nut butter off heat. Transfer to a bowl, drizzle with honey, top with berries.</p>
+        <div class="section-heading">Why it's better</div>
+        <ul class="why-list">
+          <li>Rolled oats are less processed than instant — they have a lower glycemic index (GI ~55 vs ~83 for instant), meaning glucose enters the bloodstream more slowly, giving sustained energy rather than a spike and crash</li>
+          <li>Cooking in milk instead of water adds protein, calcium, and fat that further blunt the glycemic response and make the bowl genuinely filling — water-cooked instant oats digest in under an hour</li>
+          <li>Nut butter stirred in off the heat adds another 4g protein and healthy fat, and the berries contribute antioxidants and fibre — together they turn a carb-only meal into a nutritionally complete breakfast</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Carrot Snack -->
+  <div class="meal-card">
+    <div class="meal-header">
+      <span class="meal-name">Carrot Snack</span>
+      <span class="badge snack">snack</span>
+      <span class="cuisine">Homestyle</span>
+      <span class="date">2026-03-31</span>
+    </div>
+    <div class="columns">
+      <div class="col col-good">
+        <div class="col-label">Good</div>
+        <div class="nutrition-bar">
+          <div class="stat"><span class="stat-value calories">35</span><span class="stat-label">Calories</span></div>
+          <div class="stat"><span class="stat-value protein">1g</span><span class="stat-label">Protein</span></div>
+          <div class="stat"><span class="stat-value carbs">8g</span><span class="stat-label">Carbs</span></div>
+          <div class="stat"><span class="stat-value fiber">2g</span><span class="stat-label">Fiber</span></div>
+        </div>
+        <div class="serving-note">per serving (~1 cup / 85g)</div>
+        <div class="section-heading">Ingredients</div>
+        <ul class="ingredient-list">
+          <li>Raw baby carrots</li>
+        </ul>
+        <div class="section-heading">Method</div>
+        <p class="method-text">Eat straight from the bag.</p>
+      </div>
+      <div class="col col-best">
+        <div class="col-label">Best</div>
+        <div class="nutrition-bar">
+          <div class="stat"><span class="stat-value calories">95</span><span class="stat-label">Calories</span></div>
+          <div class="stat"><span class="stat-value protein">4g</span><span class="stat-label">Protein</span></div>
+          <div class="stat"><span class="stat-value carbs">14g</span><span class="stat-label">Carbs</span></div>
+          <div class="stat"><span class="stat-value fiber">5g</span><span class="stat-label">Fiber</span></div>
+        </div>
+        <div class="serving-note">per serving (~1 cup / 85g)</div>
+        <div class="section-heading">Ingredients</div>
+        <ul class="ingredient-list">
+          <li>Whole carrots, peeled and cut into sticks</li>
+          <li>2 tbsp hummus (store-bought or homemade)</li>
+          <li>Flaky sea salt</li>
+          <li>Pinch of smoked paprika</li>
+          <li>Squeeze of lemon juice</li>
+        </ul>
+        <div class="section-heading">Method</div>
+        <p class="method-text">Cut whole carrots into batons slightly thicker than a pencil — not too thin or they lose their snap. Season lightly with flaky salt. Serve alongside hummus dusted with smoked paprika and a squeeze of lemon.</p>
+        <div class="section-heading">Why it's better</div>
+        <ul class="why-list">
+          <li>Whole carrots cut fresh have significantly more moisture and a crisper snap than pre-packaged baby carrots, which are mechanically shaped off-cuts that have been sitting in chlorinated water — the difference in texture is immediately noticeable</li>
+          <li>Hummus adds protein, fat, and fibre that slow glucose absorption, turning a pure-carb snack into something with sustained satiety — the fat also aids absorption of beta-carotene, a fat-soluble nutrient that carrots are rich in</li>
+          <li>Smoked paprika and lemon on the hummus add contrast — the acid brightens the earthy chickpea paste and the smokiness amplifies the natural sweetness of the carrot without adding any calories worth mentioning</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Steamed Mussels -->
+  <div class="meal-card">
+    <div class="meal-header">
+      <span class="meal-name">Steamed Mussels</span>
+      <span class="badge">dinner</span>
+      <span class="cuisine">French</span>
+      <span class="date">2026-03-31</span>
+    </div>
+    <div class="columns">
+      <div class="col col-good">
+        <div class="col-label">Good</div>
+        <div class="nutrition-bar">
+          <div class="stat"><span class="stat-value calories">215</span><span class="stat-label">Calories</span></div>
+          <div class="stat"><span class="stat-value protein">28g</span><span class="stat-label">Protein</span></div>
+          <div class="stat"><span class="stat-value carbs">9g</span><span class="stat-label">Carbs</span></div>
+          <div class="stat"><span class="stat-value fiber">0g</span><span class="stat-label">Fiber</span></div>
+        </div>
+        <div class="serving-note">per serving (serves 2)</div>
+        <div class="section-heading">Ingredients</div>
+        <ul class="ingredient-list">
+          <li>2 lb mussels</li>
+          <li>Water</li>
+        </ul>
+        <div class="section-heading">Method</div>
+        <p class="method-text">Steam until mussels open.</p>
+      </div>
+      <div class="col col-best">
+        <div class="col-label">Best</div>
+        <div class="nutrition-bar">
+          <div class="stat"><span class="stat-value calories">295</span><span class="stat-label">Calories</span></div>
+          <div class="stat"><span class="stat-value protein">28g</span><span class="stat-label">Protein</span></div>
+          <div class="stat"><span class="stat-value carbs">12g</span><span class="stat-label">Carbs</span></div>
+          <div class="stat"><span class="stat-value fiber">1g</span><span class="stat-label">Fiber</span></div>
+        </div>
+        <div class="serving-note">per serving (serves 2)</div>
+        <div class="section-heading">Ingredients</div>
+        <ul class="ingredient-list">
+          <li>2 lb live mussels, scrubbed and debearded</li>
+          <li>1 cup dry white wine (Muscadet or Pinot Grigio)</li>
+          <li>3 shallots, thinly sliced</li>
+          <li>4 cloves garlic, thinly sliced</li>
+          <li>2 tbsp unsalted butter, plus a knob to finish</li>
+          <li>1 small bunch flat-leaf parsley, stems separated, leaves roughly chopped</li>
+          <li>1 bay leaf</li>
+          <li>Crusty bread, to serve</li>
+        </ul>
+        <div class="section-heading">Method</div>
+        <p class="method-text">In a wide, heavy pot over medium heat, melt butter and sweat shallots until soft and translucent, about 3 min. Add garlic and parsley stems, cook 1 min. Pour in white wine, add bay leaf, bring to a boil. Add mussels, cover tightly, and steam 3–4 min — shake the pot once halfway through. Pull mussels out as they open rather than waiting for all to open at once. Discard any that remain shut after 5 min. Swirl a knob of cold butter into the broth off the heat. Pour broth over mussels, scatter parsley leaves on top, serve immediately with crusty bread.</p>
+        <div class="section-heading">Why it's better</div>
+        <ul class="why-list">
+          <li>White wine and shallots build a classic moules marinière broth — the wine's acidity brightens the briny mussel liquor while the shallots add sweetness; water produces a flat, grey steaming liquid with no flavour of its own</li>
+          <li>Pulling mussels as they open prevents overcooking — mussels go from tender to rubbery in under a minute, and cooking lid-on until "all open" guarantees the early openers are tough and chalky by the time the last ones pop</li>
+          <li>Swirling cold butter into the broth off the heat emulsifies the pan juices into a silky, restaurant-quality sauce — this is the moules frites trick that makes the broth worth drinking</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chicken Soup -->
+  <div class="meal-card">
+    <div class="meal-header">
+      <span class="meal-name">Chicken Soup</span>
+      <span class="badge">dinner</span>
+      <span class="cuisine">Homestyle</span>
+      <span class="date">2026-03-30</span>
+    </div>
+    <div class="columns">
+      <div class="col col-good">
+        <div class="col-label">Good</div>
+        <div class="nutrition-bar">
+          <div class="stat"><span class="stat-value calories">220</span><span class="stat-label">Calories</span></div>
+          <div class="stat"><span class="stat-value protein">25g</span><span class="stat-label">Protein</span></div>
+          <div class="stat"><span class="stat-value carbs">5g</span><span class="stat-label">Carbs</span></div>
+          <div class="stat"><span class="stat-value fiber">1g</span><span class="stat-label">Fiber</span></div>
+        </div>
+        <div class="serving-note">per ~1.5 cup serving (serves 4)</div>
+        <div class="section-heading">Ingredients</div>
+        <ul class="ingredient-list">
+          <li>Yellow free range chicken</li>
+          <li>Onions</li>
+          <li>Garlic</li>
+        </ul>
+        <div class="section-heading">Method</div>
+        <p class="method-text">Everything in the Instant Pot for 15 minutes.</p>
+      </div>
+      <div class="col col-best">
+        <div class="col-label">Best</div>
+        <div class="nutrition-bar">
+          <div class="stat"><span class="stat-value calories">170</span><span class="stat-label">Calories</span></div>
+          <div class="stat"><span class="stat-value protein">28g</span><span class="stat-label">Protein</span></div>
+          <div class="stat"><span class="stat-value carbs">9g</span><span class="stat-label">Carbs</span></div>
+          <div class="stat"><span class="stat-value fiber">2g</span><span class="stat-label">Fiber</span></div>
+        </div>
+        <div class="serving-note">per ~1.5 cup serving (serves 4)</div>
+        <div class="section-heading">Ingredients</div>
+        <ul class="ingredient-list">
+          <li>1 whole yellow free-range chicken, broken down into bone-in pieces</li>
+          <li>2 yellow onions, halved (unpeeled for colour and depth)</li>
+          <li>1 head of garlic, halved crosswise (unpeeled)</li>
+          <li>3 celery stalks with leaves</li>
+          <li>2 carrots, roughly chopped</li>
+          <li>1 small bunch flat-leaf parsley (stems included)</li>
+          <li>1 tsp whole black peppercorns</li>
+          <li>2 bay leaves</li>
+          <li>Cold filtered water, to cover</li>
+        </ul>
+        <div class="section-heading">Method</div>
+        <p class="method-text">Season chicken pieces well with salt at least 30 min ahead. In the Instant Pot on Sauté, brown the chicken pieces skin-side down in batches until golden — don't rush this. Remove chicken. Add onions and garlic cut-side down; let them char slightly (2–3 min) — don't stir. Deglaze with a splash of water, scraping up the fond. Return chicken, add remaining veg, peppercorns, bay leaves, parsley stems, and enough cold water to cover. Pressure cook 25 min on High. Natural release 15 min, then quick release. Strain through a fine-mesh sieve, pressing the solids gently. Skim the fat (or refrigerate overnight — the fat sets solid and lifts off cleanly, leaving pure golden stock). Shred the breast meat back in. Finish with fresh parsley leaves and adjust salt.</p>
+        <div class="section-heading">Why it's better</div>
+        <ul class="why-list">
+          <li>Browning the chicken skin-side down before pressure cooking creates Maillard compounds that infuse the entire broth — skipping this step means the soup's flavour comes only from boiling, which gives a flat, one-dimensional result</li>
+          <li>Charring the onion and garlic cut-side down (a classic technique for consommé and Vietnamese pho) adds caramel sweetness and slight bitterness that balance the richness of the stock and give it that distinctive golden depth</li>
+          <li>Salting the chicken 30 min ahead dry-brines the meat — moisture is drawn out and reabsorbed, seasoning it all the way through rather than just the surface, so the shredded chicken in the final soup is noticeably more flavourful</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- French Beef Stew -->
+  <div class="meal-card">
+    <div class="meal-header">
+      <span class="meal-name">French Beef Stew</span>
+      <span class="badge">dinner</span>
+      <span class="cuisine">French</span>
+      <span class="date">2026-03-30</span>
+    </div>
+    <div class="columns">
+      <div class="col col-good">
+        <div class="col-label">Good</div>
+        <div class="nutrition-bar">
+          <div class="stat"><span class="stat-value calories">340</span><span class="stat-label">Calories</span></div>
+          <div class="stat"><span class="stat-value protein">34g</span><span class="stat-label">Protein</span></div>
+          <div class="stat"><span class="stat-value carbs">28g</span><span class="stat-label">Carbs</span></div>
+          <div class="stat"><span class="stat-value fiber">4g</span><span class="stat-label">Fiber</span></div>
+        </div>
+        <div class="serving-note">per ~1.5 cup serving (serves 5)</div>
+        <div class="section-heading">Ingredients</div>
+        <ul class="ingredient-list">
+          <li>Lean beef</li>
+          <li>Potatoes</li>
+          <li>Carrots</li>
+          <li>Onions</li>
+          <li>Beef broth</li>
+          <li>Worcestershire sauce</li>
+          <li>Salt</li>
+          <li>Pepper</li>
+          <li>Bay leaf</li>
+        </ul>
+        <div class="section-heading">Method</div>
+        <p class="method-text">Instant Pot, 25 min. Everything in together.</p>
+      </div>
+      <div class="col col-best">
+        <div class="col-label">Best</div>
+        <div class="nutrition-bar">
+          <div class="stat"><span class="stat-value calories">490</span><span class="stat-label">Calories</span></div>
+          <div class="stat"><span class="stat-value protein">36g</span><span class="stat-label">Protein</span></div>
+          <div class="stat"><span class="stat-value carbs">32g</span><span class="stat-label">Carbs</span></div>
+          <div class="stat"><span class="stat-value fiber">4g</span><span class="stat-label">Fiber</span></div>
+        </div>
+        <div class="serving-note">per ~1.5 cup serving (serves 5)</div>
+        <div class="section-heading">Ingredients</div>
+        <ul class="ingredient-list">
+          <li>Beef chuck, cut into 2-inch cubes</li>
+          <li>Yukon Gold potatoes</li>
+          <li>Carrots, cut on the bias</li>
+          <li>Pearl onions (or 2 yellow onions, roughly chopped)</li>
+          <li>Lardons or thick-cut bacon, diced</li>
+          <li>Homemade or high-quality unsalted beef stock</li>
+          <li>1 cup dry red wine (Burgundy or Côtes du Rhône)</li>
+          <li>2 tbsp tomato paste</li>
+          <li>Fresh thyme + bay leaves</li>
+          <li>Worcestershire sauce, to finish</li>
+          <li>Flour, for dredging</li>
+        </ul>
+        <div class="section-heading">Method</div>
+        <p class="method-text">Salt beef generously 30 min ahead (dry brine). Pat dry, dredge lightly in flour, sear in batches in a hot Dutch oven until deeply browned on all sides — don't crowd the pan. Remove beef. Render lardons, sauté onions and carrots in the fat until softened. Add tomato paste, cook 2 min until it darkens and smells nutty. Deglaze with red wine, scraping up every bit of fond. Add stock, thyme, bay leaves, and seared beef. Braise in a 325°F oven 2–2.5 hours (or Instant Pot 35 min high pressure). Add potatoes in the last 30 min. Finish with a splash of Worcestershire and fresh parsley.</p>
+        <div class="section-heading">Why it's better</div>
+        <ul class="why-list">
+          <li>Chuck has abundant intramuscular fat that renders during the braise, self-basting every cube and keeping it tender — lean beef has no protection and turns dry and fibrous under heat</li>
+          <li>Searing in batches on a dry surface creates a deep Maillard crust: dozens of new aromatic compounds that the Instant Pot's boiling environment can never develop; this crust is the flavour backbone of the whole dish</li>
+          <li>Darkening the tomato paste before deglazing drives off its raw, tinny edge and concentrates its umami; the red wine then lifts all the caramelised fond from the pan — that fond is pure concentrated flavour that would otherwise be scrubbed off and lost</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,236 @@
+{
+  "meals": [
+    {
+      "id": "oatmeal",
+      "name": "Oatmeal",
+      "category": "breakfast",
+      "cuisine": "Homestyle",
+      "date_logged": "2026-03-31",
+      "serving_note": "per serving (1 packet / 1 cup cooked)",
+      "good": {
+        "ingredients": [
+          "1 packet instant oatmeal",
+          "hot water"
+        ],
+        "method": "Add hot water and serve.",
+        "nutrition": {
+          "calories": 130,
+          "protein_g": 4,
+          "carbs_g": 27,
+          "fiber_g": 2
+        }
+      },
+      "best": {
+        "ingredients": [
+          "½ cup rolled oats (not instant)",
+          "1 cup whole milk or oat milk",
+          "pinch of salt",
+          "1 tsp honey or maple syrup",
+          "½ tsp cinnamon",
+          "1 tbsp nut butter (almond or peanut)",
+          "fresh or frozen berries, to top"
+        ],
+        "method": "Combine oats, milk, salt, and cinnamon in a small saucepan over medium heat. Cook, stirring occasionally, until oats are creamy and have absorbed most of the liquid, about 5 min. Remove from heat — it will thicken further as it sits. Stir in nut butter off heat. Transfer to a bowl, drizzle with honey, top with berries.",
+        "nutrition": {
+          "calories": 370,
+          "protein_g": 12,
+          "carbs_g": 48,
+          "fiber_g": 6
+        },
+        "why_better": [
+          "Rolled oats are less processed than instant — they have a lower glycemic index (GI ~55 vs ~83 for instant), meaning glucose enters the bloodstream more slowly, giving sustained energy rather than a spike and crash",
+          "Cooking in milk instead of water adds protein, calcium, and fat that further blunt the glycemic response and make the bowl genuinely filling — water-cooked instant oats digest in under an hour",
+          "Nut butter stirred in off the heat adds another 4g protein and healthy fat, and the berries contribute antioxidants and fibre — together they turn a carb-only meal into a nutritionally complete breakfast"
+        ]
+      }
+    },
+    {
+      "id": "carrot-snack",
+      "name": "Carrot Snack",
+      "category": "snack",
+      "cuisine": "Homestyle",
+      "date_logged": "2026-03-31",
+      "serving_note": "per serving (~1 cup / 85g)",
+      "good": {
+        "ingredients": [
+          "raw baby carrots"
+        ],
+        "method": "Eat straight from the bag.",
+        "nutrition": {
+          "calories": 35,
+          "protein_g": 1,
+          "carbs_g": 8,
+          "fiber_g": 2
+        }
+      },
+      "best": {
+        "ingredients": [
+          "whole carrots, peeled and cut into sticks",
+          "2 tbsp hummus (store-bought or homemade)",
+          "flaky sea salt",
+          "pinch of smoked paprika",
+          "squeeze of lemon juice"
+        ],
+        "method": "Cut whole carrots into batons slightly thicker than a pencil — not too thin or they lose their snap. Season lightly with flaky salt. Serve alongside hummus dusted with smoked paprika and a squeeze of lemon.",
+        "nutrition": {
+          "calories": 95,
+          "protein_g": 4,
+          "carbs_g": 14,
+          "fiber_g": 5
+        },
+        "why_better": [
+          "Whole carrots cut fresh have significantly more moisture and a crisper snap than pre-packaged baby carrots, which are mechanically shaped off-cuts that have been sitting in chlorinated water — the difference in texture is immediately noticeable",
+          "Hummus adds protein, fat, and fibre that slow glucose absorption, turning a pure-carb snack into something with sustained satiety — the fat also aids absorption of beta-carotene, a fat-soluble nutrient that carrots are rich in",
+          "Smoked paprika and lemon on the hummus add contrast — the acid brightens the earthy chickpea paste and the smokiness amplifies the natural sweetness of the carrot without adding any calories worth mentioning"
+        ]
+      }
+    },
+    {
+      "id": "steamed-mussels",
+      "name": "Steamed Mussels",
+      "category": "dinner",
+      "cuisine": "French",
+      "date_logged": "2026-03-31",
+      "serving_note": "per serving (serves 2)",
+      "good": {
+        "ingredients": [
+          "2 lb mussels",
+          "water"
+        ],
+        "method": "Steam until mussels open.",
+        "nutrition": {
+          "calories": 215,
+          "protein_g": 28,
+          "carbs_g": 9,
+          "fiber_g": 0
+        }
+      },
+      "best": {
+        "ingredients": [
+          "2 lb live mussels, scrubbed and debearded",
+          "1 cup dry white wine (Muscadet or Pinot Grigio)",
+          "3 shallots, thinly sliced",
+          "4 cloves garlic, thinly sliced",
+          "2 tbsp unsalted butter, plus a knob to finish",
+          "1 small bunch flat-leaf parsley, stems separated, leaves roughly chopped",
+          "1 bay leaf",
+          "crusty bread, to serve"
+        ],
+        "method": "In a wide, heavy pot over medium heat, melt butter and sweat shallots until soft and translucent, about 3 min. Add garlic and parsley stems, cook 1 min. Pour in white wine, add bay leaf, bring to a boil. Add mussels, cover tightly, and steam 3–4 min — shake the pot once halfway through. Pull mussels out as they open rather than waiting for all to open at once. Discard any that remain shut after 5 min. Swirl a knob of cold butter into the broth off the heat. Pour broth over mussels, scatter parsley leaves on top, serve immediately with crusty bread.",
+        "nutrition": {
+          "calories": 295,
+          "protein_g": 28,
+          "carbs_g": 12,
+          "fiber_g": 1
+        },
+        "why_better": [
+          "White wine and shallots build a classic moules marinière broth — the wine's acidity brightens the briny mussel liquor while the shallots add sweetness; water produces a flat, grey steaming liquid with no flavour of its own",
+          "Pulling mussels as they open prevents overcooking — mussels go from tender to rubbery in under a minute, and cooking lid-on until 'all open' guarantees the early openers are tough and chalky by the time the last ones pop",
+          "Swirling cold butter into the broth off the heat emulsifies the pan juices into a silky, restaurant-quality sauce — this is the moules frites trick that makes the broth worth drinking"
+        ]
+      }
+    },
+    {
+      "id": "chicken-soup",
+      "name": "Chicken Soup",
+      "category": "dinner",
+      "cuisine": "Homestyle",
+      "date_logged": "2026-03-30",
+      "serving_note": "per ~1.5 cup serving (serves 4)",
+      "good": {
+        "ingredients": [
+          "yellow free range chicken",
+          "onions",
+          "garlic"
+        ],
+        "method": "Everything in the Instant Pot for 15 minutes.",
+        "nutrition": {
+          "calories": 220,
+          "protein_g": 25,
+          "carbs_g": 5,
+          "fiber_g": 1
+        }
+      },
+      "best": {
+        "ingredients": [
+          "1 whole yellow free-range chicken, broken down into bone-in pieces",
+          "2 yellow onions, halved (unpeeled for colour and depth)",
+          "1 head of garlic, halved crosswise (unpeeled)",
+          "3 celery stalks with leaves",
+          "2 carrots, roughly chopped",
+          "1 small bunch flat-leaf parsley (stems included)",
+          "1 tsp whole black peppercorns",
+          "2 bay leaves",
+          "cold filtered water, to cover"
+        ],
+        "method": "Season chicken pieces well with salt at least 30 min ahead. In the Instant Pot on Sauté, brown the chicken pieces skin-side down in batches until golden — don't rush this. Remove chicken. Add onions and garlic cut-side down; let them char slightly (2–3 min) — don't stir. Deglaze with a splash of water, scraping up the fond. Return chicken, add remaining veg, peppercorns, bay leaves, parsley stems, and enough cold water to cover. Pressure cook 25 min on High. Natural release 15 min, then quick release. Strain through a fine-mesh sieve, pressing the solids gently. Skim the fat (or refrigerate overnight — the fat sets solid and lifts off cleanly, leaving pure golden stock). Shred the breast meat back in. Finish with fresh parsley leaves and adjust salt.",
+        "nutrition": {
+          "calories": 170,
+          "protein_g": 28,
+          "carbs_g": 9,
+          "fiber_g": 2
+        },
+        "why_better": [
+          "Browning the chicken skin-side down before pressure cooking creates Maillard compounds that infuse the entire broth — skipping this step means the soup's flavour comes only from boiling, which gives a flat, one-dimensional result",
+          "Charring the onion and garlic cut-side down (a classic French technique for consommé and Vietnamese pho) adds caramel sweetness and slight bitterness that balance the richness of the stock and give it that distinctive golden depth",
+          "Salting the chicken 30 min ahead pulls moisture to the surface and back in by osmosis (dry brine effect), seasoning the meat all the way through rather than just its exterior — the shredded chicken in the final soup will be noticeably more flavourful"
+        ]
+      }
+    },
+    {
+      "id": "french-beef-stew",
+      "name": "French Beef Stew",
+      "category": "dinner",
+      "cuisine": "French",
+      "date_logged": "2026-03-30",
+      "serving_note": "per ~1.5 cup serving (serves 5)",
+      "good": {
+        "ingredients": [
+          "lean beef",
+          "potatoes",
+          "carrots",
+          "onions",
+          "beef broth",
+          "Worcestershire sauce",
+          "salt",
+          "pepper",
+          "bay leaf"
+        ],
+        "method": "Instant Pot, 25 min. Everything in together.",
+        "nutrition": {
+          "calories": 340,
+          "protein_g": 34,
+          "carbs_g": 28,
+          "fiber_g": 4
+        }
+      },
+      "best": {
+        "ingredients": [
+          "beef chuck, cut into 2-inch cubes",
+          "Yukon Gold potatoes",
+          "carrots, cut on the bias",
+          "pearl onions (or 2 yellow onions, roughly chopped)",
+          "lardons or thick-cut bacon, diced",
+          "homemade or high-quality unsalted beef stock",
+          "1 cup dry red wine (Burgundy or Côtes du Rhône)",
+          "2 tbsp tomato paste",
+          "fresh thyme + bay leaves",
+          "Worcestershire sauce, to finish",
+          "flour, for dredging"
+        ],
+        "method": "Salt beef generously 30 min ahead (dry brine). Pat dry, dredge lightly in flour, sear in batches in a hot Dutch oven until deeply browned on all sides — don't crowd the pan. Remove beef. Render lardons, sauté onions and carrots in the fat until softened. Add tomato paste, cook 2 min until it darkens and smells nutty. Deglaze with red wine, scraping up every bit of fond. Add stock, thyme, bay leaves, and seared beef. Braise in a 325°F oven 2–2.5 hours (or Instant Pot 35 min high pressure). Add potatoes in the last 30 min. Finish with a splash of Worcestershire and fresh parsley.",
+        "nutrition": {
+          "calories": 490,
+          "protein_g": 36,
+          "carbs_g": 32,
+          "fiber_g": 4
+        },
+        "why_better": [
+          "Chuck has abundant intramuscular fat that renders during the braise, self-basting every cube and keeping it tender — lean beef has no protection and turns dry and fibrous under heat",
+          "Searing in batches on a dry surface creates a deep Maillard crust: dozens of new aromatic compounds that the Instant Pot's boiling environment can never develop; this crust is the flavour backbone of the whole dish",
+          "Darkening the tomato paste before deglazing drives off its raw, tinny edge and concentrates its umami; the red wine then lifts all the caramelised fond from the pan — that fond is pure concentrated flavour that would otherwise be scrubbed off and lost"
+        ]
+      }
+    }
+  ]
+}
